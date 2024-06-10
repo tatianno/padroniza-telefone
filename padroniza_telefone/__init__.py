@@ -1,4 +1,4 @@
-from telefone import Telefone, TelefoneInvalidoException
+from padroniza_telefone.telefone import Telefone, TelefoneInvalidoException
 
 
 __all__ = [

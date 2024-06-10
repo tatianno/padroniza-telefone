@@ -8,7 +8,7 @@ with open("README.md", "r") as arq:
 
 setup(
     name='padroniza-telefone',
-    version='0.0.2',
+    version='0.0.3',
     license='MIT License',
     author='Tatianno Alves',
     long_description=readme,
