@@ -9,9 +9,10 @@ Standardize Phones available on PyPI:
 
 $ python -m pip install padroniza-telefone
 
-Officially supports Python 3.8+.
+**Officially supports Python 3.8+.**
 
-Cloning the repository
+## Cloning the repository
+
 $ git clone https://github.com/tatianno/padroniza-telefone.git
 
 ## Example
