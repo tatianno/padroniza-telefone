@@ -17,23 +17,34 @@ class Telefone:
         self._tamanho_minimo_para_telefone_valido = 8
         self._tamanhos_para_telefone_sem_codigo_pais = [10, 11]
         self._tamanhos_para_telefone_sem_codigo_area = [8, 9]
+        self._validar_numero_telefone(numero)
         self.numero = self._obter_numero_tratado(numero)
         
     @property
     def eh_movel(self) -> bool:
         return bool(self.numero[4] == '9')
     
+    def _validar_numero_telefone(self, numero: str) -> None:
+        self._validar_tipo_numero_telefone(numero)
+        self._validar_tamanho_minimo_telefone(numero)
+
     def _obter_numero_tratado(self, numero: str) -> str:
         numero = self._tratar_caracteres_especiais(numero)
         numero = self._converter_numero_para_padrao_e_164(numero)
         return numero
+    
+    def _validar_tipo_numero_telefone(self, numero: str) -> None:
 
-    def _converter_numero_para_padrao_e_164(self, numero: str) -> str:
+        if type(numero) != str:
+            raise TelefoneInvalidoException('O numero deve ser do tipo string')
         
+    def _validar_tamanho_minimo_telefone(self, numero: str) -> None:
         if len(numero) < self._tamanho_minimo_para_telefone_valido:
             raise TelefoneInvalidoException('Erro de tamanho mínimo!')
-        
-        elif len(numero) in self._tamanhos_para_telefone_sem_codigo_pais:
+
+    def _converter_numero_para_padrao_e_164(self, numero: str) -> str:
+                
+        if len(numero) in self._tamanhos_para_telefone_sem_codigo_pais:
             return f'{self._codigo_pais}{numero}'
         
         elif len(numero) in self._tamanhos_para_telefone_sem_codigo_area:

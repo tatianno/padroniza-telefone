@@ -37,7 +37,7 @@ class TelefoneTestCase(TestCase):
         )
         self.assertEqual('551137092380', telefone.numero)
     
-    def test_telefone_semf_remover_caracteres_especiais(self):
+    def test_telefone_sem_remover_caracteres_especiais(self):
         telefone = Telefone(
             numero='+551137092380', 
             codigo_area='11', 
@@ -45,6 +45,9 @@ class TelefoneTestCase(TestCase):
             remover_caracteres_especiais=False
         )
         self.assertEqual('+551137092380', telefone.numero)
+    
+    def test_telefone_eh_nulo(self):
+        self.assertRaises(TelefoneInvalidoException, Telefone, None, '11', '55')
     
     def test_telefone_eh_movel(self):
         telefone = Telefone(
