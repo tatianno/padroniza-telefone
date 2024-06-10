@@ -1,8 +1,10 @@
 
-Overview
+# Standardize Phones
+
+## Overview
 Standardizes phone to E164 standard.
 
-Installing and Supported Versions
+## Installing and Supported Versions
 Standardize Phones available on PyPI:
 
 $ python -m pip install padroniza-telefone
@@ -12,7 +14,7 @@ Officially supports Python 3.8+.
 Cloning the repository
 $ git clone https://github.com/tatianno/padroniza-telefone.git
 
-Example
+## Example
 ```
 from padroniza_telefone import Telefone
 
